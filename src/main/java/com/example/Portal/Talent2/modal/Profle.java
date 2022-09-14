@@ -1,9 +1,11 @@
 package com.example.Portal.Talent2.modal;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -11,15 +13,20 @@ import lombok.Data;
 @Data
 @Entity
 @Table
-public class PersonalDetail {
+public class Profle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long personal_id;
-    private String firs_name;
-    private String second_name;
-    private String last_name;
-    private String address;
-    private String gender;
-    private String phone;
-    private String biography;
+    private Long prifile_id;
+    @ManyToOne
+    private PersonalDetail personalDetail;
+    @ManyToOne
+    private Skill skill;
+    @ManyToOne
+    private Education education;
+    @ManyToOne
+    private Experiance experiance;
+    @ManyToOne
+    private User user;
+
+
 }
