@@ -47,7 +47,8 @@ public class PersonalDetailService {
         personalDetail2.setFirs_name(personalDetail.getFirs_name());
         personalDetail2.setSecond_name(personalDetail.getSecond_name());
         personalDetail2.setLast_name(personalDetail.getLast_name());
-        personalDetail2.setAddress(personalDetail.getAddress());
+        personalDetail2.setLocation(personalDetail.getLocation());
+        personalDetail2.setCity(personalDetail.getCity());
         personalDetail2.setGender(personalDetail.getGender());
         personalDetail2.setBiography(personalDetail.getBiography());
         personalDetail2.setPhone(personalDetail.getPhone());

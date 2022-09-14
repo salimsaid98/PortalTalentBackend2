@@ -43,8 +43,11 @@ public class EducationService {
     public Education update(Long id, Education education){
         Education education2 = getbyid(id);
         education2.setCollage_name(education.getCollage_name());
-        education2.setEducation_year(education.getEducation_year());
-        Education education3= educationRepo.save(education2);
+        education2.setStudy(education.getStudy());
+        education.setLevel(education.getLevel());
+        education2.setEducation_year_start(education.getEducation_year_start());
+        education2.setEducation_year_end(education.getEducation_year_end());
+            Education education3= educationRepo.save(education2);
         return education3;
 
     }

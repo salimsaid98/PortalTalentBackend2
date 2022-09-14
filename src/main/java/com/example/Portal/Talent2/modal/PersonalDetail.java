@@ -18,7 +18,8 @@ public class PersonalDetail {
     private String firs_name;
     private String second_name;
     private String last_name;
-    private String address;
+    private String Location;
+    private String city;
     private String gender;
     private String phone;
     private String biography;

@@ -16,7 +16,8 @@ public class Experiance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long experience_id;
-    private String experience_name;
+    private String company_name;
+    private String locations;
     private LocalDate startyear;
     private LocalDate endyear;
 }

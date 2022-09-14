@@ -17,5 +17,8 @@ public class Education {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long education_id;
     private String collage_name;
-    private LocalDate education_year;
+    private String level;
+    private String study;
+    private LocalDate education_year_start;
+    private LocalDate education_year_end;
 }

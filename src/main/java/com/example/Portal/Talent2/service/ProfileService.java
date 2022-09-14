@@ -65,20 +65,25 @@ public class ProfileService {
                 profileRespondDTO.setFirs_name(profle.getPersonalDetail().getFirs_name());
                 profileRespondDTO.setSecond_name(profle.getPersonalDetail().getSecond_name());
                 profileRespondDTO.setLast_name(profle.getPersonalDetail().getLast_name());
-                profileRespondDTO.setAddress(profle.getPersonalDetail().getAddress());
+                profileRespondDTO.setLocation(profle.getPersonalDetail().getLocation());
+                profileRespondDTO.setCity(profle.getPersonalDetail().getCity());
                 profileRespondDTO.setGender(profle.getPersonalDetail().getGender());
                 profileRespondDTO.setPhone(profle.getPersonalDetail().getPhone());
                 profileRespondDTO.setBiography(profle.getPersonalDetail().getBiography());
 
                 // education info set and get
                 profileRespondDTO.setCollage_name(profle.getEducation().getCollage_name());
-                profileRespondDTO.setEducation_year(profle.getEducation().getEducation_year());
+                profileRespondDTO.setEducation_year_start(profle.getEducation().getEducation_year_start());
+                profileRespondDTO.setEducation_year_end(profle.getEducation().getEducation_year_end());
+                profileRespondDTO.setLevel(profle.getEducation().getLevel());
+                profileRespondDTO.setStudy(profle.getEducation().getStudy());
 
                 // skill info set and get
                 profileRespondDTO.setSkill_name(profle.getSkill().getSkill_name());
 
                 //experience info set and get
-                profileRespondDTO.setExperience_name(profle.getExperiance().getExperience_name());
+                profileRespondDTO.setCompany_name(profle.getExperiance().getCompany_name());
+                profileRespondDTO.setLocations(profle.getExperiance().getLocations());
                 profileRespondDTO.setStartyear(profle.getExperiance().getStartyear());
                 profileRespondDTO.setEndyear(profle.getExperiance().getEndyear());
 

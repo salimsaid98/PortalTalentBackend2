@@ -43,7 +43,8 @@ public class ExperianceService {
 
     public Experiance update(Long id, Experiance experiance){
         Experiance experiance2 = getbyid(id);
-        experiance2.setExperience_name(experiance.getExperience_name());
+        experiance2.setCompany_name(experiance.getCompany_name());
+        experiance2.setLocations(experiance.getLocations());
         experiance2.setStartyear(experiance.getStartyear());
         experiance2.setEndyear(experiance.getEndyear());
         Experiance experiance3= experianceRepo.save(experiance2);
