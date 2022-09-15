@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Portal.Talent2.exception.Datanotfound;
 import com.example.Portal.Talent2.modal.Education;
+import com.example.Portal.Talent2.modal.PersonalDetail;
 import com.example.Portal.Talent2.repository.EducationRepo;
 
 import lombok.Data;
@@ -17,7 +18,10 @@ public class EducationService {
     private EducationRepo educationRepo;
 
     public Education save(Education education){
+        PersonalDetail personalDetail = new PersonalDetail();
+        personalDetail.setPersonal_id(education.getPersonalDetail().getPersonal_id());
         Education education2 = educationRepo.save(education);
+        education2.setPersonalDetail(personalDetail);
         return education2;
     }
 
@@ -51,5 +55,7 @@ public class EducationService {
         return education3;
 
     }
-   
+   public List<Education> getbyforeign(Long id){
+    return educationRepo.findByforeign(id);
+   }
 }

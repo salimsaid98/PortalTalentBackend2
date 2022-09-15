@@ -1,10 +1,13 @@
 package com.example.Portal.Talent2.modal;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 import lombok.Data;
 
@@ -23,4 +26,8 @@ public class PersonalDetail {
     private String gender;
     private String phone;
     private String biography;
+
+    // @OneToOne
+    // private User user;
+
 }

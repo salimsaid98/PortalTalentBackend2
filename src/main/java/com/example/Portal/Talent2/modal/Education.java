@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -21,4 +22,6 @@ public class Education {
     private String study;
     private LocalDate education_year_start;
     private LocalDate education_year_end;
+    @ManyToOne
+    private PersonalDetail personalDetail;
 }

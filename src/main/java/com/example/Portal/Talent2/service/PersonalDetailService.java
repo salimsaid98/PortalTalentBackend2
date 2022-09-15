@@ -5,10 +5,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.Portal.Talent2.exception.Datanotfound;
+import com.example.Portal.Talent2.modal.Education;
+import com.example.Portal.Talent2.modal.Experiance;
 import com.example.Portal.Talent2.modal.PersonalDetail;
+import com.example.Portal.Talent2.modal.Skill;
+import com.example.Portal.Talent2.repository.EducationRepo;
+import com.example.Portal.Talent2.repository.ExperianceRepo;
 import com.example.Portal.Talent2.repository.PersonalDetailRepo;
+import com.example.Portal.Talent2.repository.SkillRepo;
 
 import lombok.Data;
 @Data
@@ -17,8 +22,17 @@ public class PersonalDetailService {
     @Autowired
     private PersonalDetailRepo personalDetailRepo;
 
+    @Autowired
+    private EducationRepo educationRepo;
+
+    @Autowired
+    private ExperianceRepo experianceRepo;
+
+    @Autowired SkillRepo skillRepo;
 
     public PersonalDetail save(PersonalDetail personalDetail){
+        // User user = new User();
+        // user.setUser_id(personalDetail.getUser().getUser_id());
         PersonalDetail personalDetail2 = personalDetailRepo.save(personalDetail);
         return personalDetail2;
     }
@@ -26,7 +40,7 @@ public class PersonalDetailService {
     public List<PersonalDetail> getall(){
         List<PersonalDetail>list = new ArrayList<>();
         for(PersonalDetail personalDetail:personalDetailRepo.findAll()){
-            list.add(personalDetail);
+            list.add(personalDetail);       
         }
         return list;
     }
@@ -57,5 +71,23 @@ public class PersonalDetailService {
     
 
        
+    }
+    public List<PersonalDetail> getbyforeignP(Long id){
+        return personalDetailRepo.findByforeign(id);
+    }
+
+    public List<Education> getbyforeignE(Long id){
+        
+        return educationRepo.findByforeign(id);
+    }
+
+    public List<Experiance> getbyforeignEx(Long id){
+        
+        return experianceRepo.findByforeign(id);
+    }
+
+    public List<Skill> getbyforeignSkill(Long id){
+        
+        return skillRepo.findByforeign(id);
     }
 }

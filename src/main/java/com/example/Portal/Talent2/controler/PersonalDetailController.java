@@ -1,7 +1,9 @@
 package com.example.Portal.Talent2.controler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -53,5 +55,13 @@ public class PersonalDetailController {
             PersonalDetail personalDetail2 = personalDetailService.update(id, personalDetail);
             return ResponseEntity.ok().body(personalDetail2);
     }
-
+    @GetMapping("all_info/{id}")
+    public Map readAllData(@PathVariable Long id) {  
+        Map<String, Object> list = new HashMap();
+        list.put("Personal", personalDetailService.getbyforeignP(id));
+        list.put("Education", personalDetailService.getbyforeignE(id));
+        list.put("Experience", personalDetailService.getbyforeignEx(id));
+        list.put("Skills", personalDetailService.getbyforeignSkill(id));
+        return list;
+    }
 }

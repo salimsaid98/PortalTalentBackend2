@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Portal.Talent2.exception.Datanotfound;
 import com.example.Portal.Talent2.modal.Experiance;
+import com.example.Portal.Talent2.modal.PersonalDetail;
 import com.example.Portal.Talent2.repository.ExperianceRepo;
 
 import lombok.Data;
@@ -18,6 +19,8 @@ public class ExperianceService {
     private ExperianceRepo experianceRepo;
 
     public Experiance save(Experiance experiance){
+        PersonalDetail personalDetail = new PersonalDetail();
+        personalDetail.setPersonal_id(experiance.getPersonalDetail().getPersonal_id());
         Experiance Experiance2 = experianceRepo.save(experiance);
         return Experiance2;
     }

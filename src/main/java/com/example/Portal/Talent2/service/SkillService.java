@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.Portal.Talent2.exception.Datanotfound;
+import com.example.Portal.Talent2.modal.PersonalDetail;
 import com.example.Portal.Talent2.modal.Skill;
 import com.example.Portal.Talent2.repository.SkillRepo;
 
@@ -18,6 +19,8 @@ public class SkillService {
     private SkillRepo skillRepo;
 
     public Skill save(Skill skill){
+        PersonalDetail personalDetail = new PersonalDetail();
+        personalDetail.setPersonal_id(skill.getPersonalDetail().getPersonal_id());
         Skill skill2 = skillRepo.save(skill);
         return skill2;
     }

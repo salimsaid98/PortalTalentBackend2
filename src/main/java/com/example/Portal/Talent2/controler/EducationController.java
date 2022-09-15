@@ -53,4 +53,8 @@ public class EducationController {
             Education education2 = educationService.update(id, education);
             return ResponseEntity.ok().body(education2);
     }
+    @GetMapping("feoreign/{id}")
+    public ResponseEntity<?> getbyforeign(@PathVariable Long id){
+        return ResponseEntity.ok().body(educationService.getbyforeign(id));
+    }
 }
