@@ -66,6 +66,8 @@ public class PersonalDetailService {
         personalDetail2.setGender(personalDetail.getGender());
         personalDetail2.setBiography(personalDetail.getBiography());
         personalDetail2.setPhone(personalDetail.getPhone());
+        personalDetail2.setEmail(personalDetail.getEmail());
+        personalDetail2.setPass(personalDetail.getPass());
         PersonalDetail personalDetail3 = personalDetailRepo.save(personalDetail2);
         return personalDetail3;
     
@@ -90,4 +92,9 @@ public class PersonalDetailService {
         
         return skillRepo.findByforeign(id);
     }
+
+public List<PersonalDetail> getbyemail(String email,String pass){
+        return personalDetailRepo.findByEmail(email,pass);
+}
+ 
 }

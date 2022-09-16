@@ -26,12 +26,12 @@ public class ExperianceController {
     @Autowired
     private ExperianceService experianceService;
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<?> save(@RequestBody Experiance experiance){
         Experiance experiance2 = experianceService.save(experiance);
         return ResponseEntity.ok().body(experiance2);
     }
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<?> getall(){
         List<Experiance> list = new ArrayList<>();
         for(Experiance Experiance : experianceService.getall()){

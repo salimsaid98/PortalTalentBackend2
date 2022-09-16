@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -26,7 +25,8 @@ public class PersonalDetail {
     private String gender;
     private String phone;
     private String biography;
-
+    private String email;
+    private String pass;
     // @OneToOne
     // private User user;
 

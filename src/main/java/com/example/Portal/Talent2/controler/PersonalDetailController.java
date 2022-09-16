@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,16 +18,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Portal.Talent2.modal.PersonalDetail;
+import com.example.Portal.Talent2.repository.PersonalDetailRepo;
 import com.example.Portal.Talent2.service.PersonalDetailService;
 
 import lombok.Data;
 @Data
 @RestController
-@RequestMapping("pesonalDetail")
+@RequestMapping("/pesonalDetail")
 public class PersonalDetailController {
     @Autowired
     private PersonalDetailService personalDetailService;
-
+    @Autowired
+    private PersonalDetailRepo personalDetailRepo;
     @PostMapping
     public ResponseEntity<?> save(@RequestBody PersonalDetail personalDetail){
         PersonalDetail personalDetail2 = personalDetailService.save(personalDetail);
@@ -64,4 +67,8 @@ public class PersonalDetailController {
         list.put("Skills", personalDetailService.getbyforeignSkill(id));
         return list;
     }
+ @PostMapping("/{email}/{pass}")
+ public ResponseEntity<?> getemail(@PathVariable("email") String email,@PathVariable("pass") String pass){
+    return ResponseEntity.ok(personalDetailService.getbyemail(email,pass));
+ }
 }
