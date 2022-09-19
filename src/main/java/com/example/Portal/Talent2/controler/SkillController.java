@@ -25,12 +25,12 @@ public class SkillController {
     @Autowired
     private SkillService skillService;
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<?> save(@RequestBody Skill skill){
         Skill skill2 = skillService.save(skill);
         return ResponseEntity.ok().body(skill2);
     }
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<?> getall(){
         List<Skill> list = new ArrayList<>();
         for(Skill skill : skillService.getall()){

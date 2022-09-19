@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,9 +23,13 @@ import com.example.Portal.Talent2.repository.PersonalDetailRepo;
 import com.example.Portal.Talent2.service.PersonalDetailService;
 
 import lombok.Data;
+
+
+
 @Data
 @RestController
 @RequestMapping("/pesonalDetail")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonalDetailController {
     @Autowired
     private PersonalDetailService personalDetailService;
@@ -67,8 +72,12 @@ public class PersonalDetailController {
         list.put("Skills", personalDetailService.getbyforeignSkill(id));
         return list;
     }
- @PostMapping("/{email}/{pass}")
- public ResponseEntity<?> getemail(@PathVariable("email") String email,@PathVariable("pass") String pass){
-    return ResponseEntity.ok(personalDetailService.getbyemail(email,pass));
- }
+ @PostMapping("/login")
+public ResponseEntity<?> postlogin(@RequestBody PersonalDetail personalDetail){
+    System.out.println(personalDetail);
+    PersonalDetail personalDetail2 =  personalDetailRepo.findByEmail(personalDetail.getEmail());
+    if(personalDetail2.getPass().equals(personalDetail.getPass()))
+        return ResponseEntity.ok(personalDetail2);
+        return (ResponseEntity<?>) ResponseEntity.internalServerError();
+}
 }

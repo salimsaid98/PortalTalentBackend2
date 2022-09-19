@@ -93,8 +93,8 @@ public class PersonalDetailService {
         return skillRepo.findByforeign(id);
     }
 
-public List<PersonalDetail> getbyemail(String email,String pass){
-        return personalDetailRepo.findByEmail(email,pass);
-}
+// public List<PersonalDetail> getbyemail(String email,String pass){
+//         return personalDetailRepo.findByEmail(email,pass);
+// }
  
 }

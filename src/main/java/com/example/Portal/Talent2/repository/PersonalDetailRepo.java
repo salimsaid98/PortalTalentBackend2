@@ -13,8 +13,8 @@ public interface PersonalDetailRepo extends JpaRepository<PersonalDetail,Long>{
     List<PersonalDetail> findByforeign(Long id);
 
 
-    @Query(value="select * from personal_detail where email = ?1 and pass = ?2",nativeQuery = true)
-    List<PersonalDetail> findByEmail(String email,String pass);
+    @Query(value="select * from personal_detail where email = ?1 ",nativeQuery = true)
+    PersonalDetail findByEmail(String email);
 
    
 }

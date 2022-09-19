@@ -26,12 +26,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<?> save(@RequestBody User user){
         User user2 = userService.save(user);
         return ResponseEntity.ok().body(user2);
     }
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<?> getall(){
         List<User> list = new ArrayList<>();
         for(User user : userService.getall()){
